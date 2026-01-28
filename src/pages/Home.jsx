@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
 import Hero from '../components/Hero'
-import team1 from '../assets/images/teampic1.jpg'
-import team2 from '../assets/images/teampic2.jpg'
-import team3 from '../assets/images/teampic3.jpg'
+import team1 from '../assets/images/teampic1.JPG'
+import team2 from '../assets/images/teampic2.JPG'
+import team3 from '../assets/images/teampic3.JPG'
 const Home = () => {
   return (
     <div>
