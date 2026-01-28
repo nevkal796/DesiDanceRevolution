@@ -71,7 +71,7 @@ const PhotoGallery = ({ images, loading, error }) => {
   return (
     <div className="py-12" tabIndex={0}>
       {/* Photo Grid - Responsive Grid Layout */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
+      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
         {images.map((image, index) => {
           // Calculate aspect ratio if available, otherwise use 4:3
           const aspectRatio = image.width && image.height 
@@ -99,7 +99,7 @@ const PhotoGallery = ({ images, loading, error }) => {
             <img
               src={image.thumbnailUrl}
               alt={image.name}
-              className="w-full h-full object-cover transition-opacity duration-300"
+              className="w-full h-full object-cover transition-opacity duration-300 max-h-[200px] md:max-h-[250px] lg:max-h-none"
               loading="lazy"
               onError={(e) => {
                 const img = e.currentTarget

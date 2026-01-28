@@ -18,149 +18,119 @@ const Home = () => {
             Meet The Team
           </h2>
           {/* Split Layout: Text Left, Collage Right */}
-          <div className="flex flex-col lg:flex-row gap-1 lg:gap-1 items-start">
+          <div className="flex flex-col lg:flex-row gap-8 lg:gap-10 items-start">
             {/* Text Content - Left Side */}
             <div className="pl-16 flex-1 lg:max-w-2xl space-y-3 text-gray-300 text-lg leading-relaxed order-2 lg:order-1 lg:ml-12">
               <p className="animate-fade-in">
-                Desi Dance Revolution is a vibrant Bollywood dance team dedicated to celebrating the rich cultural heritage of Indian dance. We bring together passionate dancers who share a love for the dynamic, expressive, and celebratory art form that is Bollywood dance.
+                Desi Dance Revolution is a Bollywood dance team dedicated to celebrating the rich cultural heritage of Indian dance. We bring together passionate dancers who share a love for the dynamic, expressive, and celebratory art form that is Bollywood dance.
               </p>
               <p className="animate-fade-in" style={{ animationDelay: '0.2s' }}>
-                Our mission is to spread joy, energy, and cultural appreciation through our performances. We combine traditional Indian dance movements with modern choreography, creating a unique fusion that captivates audiences and brings communities together.
+                Our mission is to spread joy, energy, and cultural appreciation through our performances. We combine traditional Indian dance movements with modern choreography, creating a  fusion that brings communities together.
               </p>
             </div>
             {/* Image Collage - Right Side */}
-            <div className="flex-1 lg:flex-none lg:w-[600px] relative min-h-[400px] sm:min-h-[500px] md:min-h-[600px] lg:min-h-[700px] flex items-center justify-center lg:block order-1 lg:order-2 mx-auto lg:mx-0 w-full max-w-full lg:max-w-none">
-              {/* Image 1 - Primary/Hero Image (Largest, Prominent) */}
-              <div
-                className="absolute top-0 sm:top-0 md:top-0 lg:bottom-30 right-0 sm:right-0 md:right-0 lg:right-10 left-1/2 sm:left-auto -translate-x-1/2 sm:translate-x-0 w-[280px] h-[350px] md:w-[320px] md:h-[400px] lg:w-[400px] lg:h-[500px] rounded-lg overflow-hidden group cursor-pointer transition-all duration-500 ease-out animate-fade-in"
-                style={{
-                  transform: 'rotate(-2deg)',
-                  zIndex: 10,
-                  animationDelay: '0.1s',
-                }}
-                onMouseEnter={(e) => {
-                  if (window.innerWidth >= 1024) {
+            <div className="flex-1 lg:flex-none lg:w-[600px] order-1 lg:order-2">
+              {/* Mobile / Tablet: stacked images */}
+              <div className="flex flex-col items-center gap-6 lg:hidden">
+                <div className="w-full max-w-[280px] rounded-lg overflow-hidden border-4 border-gold shadow-[0_0_25px_rgba(232,212,160,0.5)]">
+                  <img src={team3} alt="Team Photo 1" className="w-full h-full object-cover" />
+                </div>
+                <div className="w-full max-w-[260px] rounded-lg overflow-hidden border-3 border-gold-light shadow-[0_0_20px_rgba(232,212,160,0.4)]">
+                  <img src={team2} alt="Team Photo 2" className="w-full h-full object-cover" />
+                </div>
+                <div className="w-full max-w-[240px] rounded-lg overflow-hidden border-3 border-gold-dark shadow-[0_0_18px_rgba(232,212,160,0.35)]">
+                  <img src={team1} alt="Team Photo 3" className="w-full h-full object-cover" />
+                </div>
+              </div>
+
+              {/* Desktop: revert to previous collage layout */}
+              <div className="hidden lg:block flex-1 lg:flex-none lg:w-[600px] relative min-h-[400px] sm:min-h-[500px] md:min-h-[600px] lg:min-h-[700px] lg:block mx-auto lg:mx-0 w-full max-w-full lg:max-w-none">
+                {/* Image 1 */}
+                <div
+                  className="absolute top-0 sm:top-0 md:top-0 lg:bottom-30 right-0 sm:right-0 md:right-0 lg:right-10 left-1/2 sm:left-auto -translate-x-1/2 sm:translate-x-0 w-[280px] h-[350px] md:w-[320px] md:h-[400px] lg:w-[400px] lg:h-[500px] rounded-lg overflow-hidden group cursor-pointer transition-all duration-500 ease-out animate-fade-in"
+                  style={{ transform: 'rotate(-2deg)', zIndex: 10, animationDelay: '0.1s' }}
+                  onMouseEnter={(e) => {
                     e.currentTarget.style.transform = 'rotate(-3deg) scale(1.05) translateY(-10px)'
-                  } else {
-                    e.currentTarget.style.transform = 'scale(1.05) translateY(-5px)'
-                  }
-                  e.currentTarget.style.boxShadow = '0 0 50px rgba(232, 212, 160, 0.8), 0 20px 60px rgba(201, 169, 97, 0.6)'
-                }}
-                onMouseLeave={(e) => {
-                  if (window.innerWidth >= 1024) {
+                    e.currentTarget.style.boxShadow = '0 0 50px rgba(232, 212, 160, 0.8), 0 20px 60px rgba(201, 169, 97, 0.6)'
+                  }}
+                  onMouseLeave={(e) => {
                     e.currentTarget.style.transform = 'rotate(-2deg) scale(1) translateY(0)'
-                  } else {
-                    e.currentTarget.style.transform = 'rotate(0deg) scale(1) translateY(0)'
-                  }
-                  e.currentTarget.style.boxShadow = '0 0 40px rgba(232, 212, 160, 0.6), 0 15px 50px rgba(201, 169, 97, 0.4)'
-                }}
-              >
-                <div
-                  className="w-full h-full flex items-center justify-center text-black font-bold text-xl border-6 border-gold rounded-lg relative"
-                  style={{
-                    background: 'linear-gradient(135deg, #C9A961 0%, #E8D4A0 50%, #A08748 100%)',
-                    boxShadow: '0 0 40px rgba(232, 212, 160, 0.6), 0 15px 50px rgba(201, 169, 97, 0.4)',
-                    borderWidth: '6px',
+                    e.currentTarget.style.boxShadow = '0 0 40px rgba(232, 212, 160, 0.6), 0 15px 50px rgba(201, 169, 97, 0.4)'
                   }}
                 >
-                  <img src={team3} alt="team1pic" className="w-full h-full object-cover" />
-                  {/* Sparkle dots */}
-                  <div className="absolute top-4 right-4 w-2 h-2 bg-gold-light rounded-full animate-sparkle"></div>
-                  <div className="absolute bottom-4 left-4 w-1.5 h-1.5 bg-gold-light rounded-full animate-sparkle" style={{ animationDelay: '1s' }}></div>
-                  {/* Corner flourish */}
-                  <div className="absolute top-0 left-0 w-16 h-16 border-t-2 border-l-2 border-gold-light opacity-30"></div>
+                  <div
+                    className="w-full h-full flex items-center justify-center text-black font-bold text-xl border-6 border-gold rounded-lg relative"
+                    style={{
+                      background: 'linear-gradient(135deg, #C9A961 0%, #E8D4A0 50%, #A08748 100%)',
+                      boxShadow: '0 0 40px rgba(232, 212, 160, 0.6), 0 15px 50px rgba(201, 169, 97, 0.4)',
+                      borderWidth: '6px',
+                    }}
+                  >
+                    <img src={team3} alt="team1pic" className="w-full h-full object-cover" />
+                    <div className="absolute top-4 right-4 w-2 h-2 bg-gold-light rounded-full animate-sparkle"></div>
+                    <div className="absolute bottom-4 left-4 w-1.5 h-1.5 bg-gold-light rounded-full animate-sparkle" style={{ animationDelay: '1s' }}></div>
+                    <div className="absolute top-0 left-0 w-16 h-16 border-t-2 border-l-2 border-gold-light opacity-30"></div>
+                  </div>
                 </div>
-              </div>
 
-              {/* Image 2 - Secondary Image (Medium, Overlaps Image 1) */}
-              <div
-                className=" absolute top-[0px] left-1/2 sm:top-[0px] sm:left-auto sm:right-[80px] md:top-[0] md:right-[50px] lg:top-[342px] lg:right-[720px] -translate-x-1/2 sm:translate-x-0 w-[220px] h-[280px] md:w-[250px] md:h-[320px] lg:w-[340px] lg:h-[420px] rounded-lg overflow-hidden group cursor-pointer transition-all duration-500 ease-out animate-fade-in"
-                style={{
-                  transform: 'rotate(5deg)',
-                  zIndex: 30,
-                  animationDelay: '0.3s',
-                }}
-                onMouseEnter={(e) => {
-                  if (window.innerWidth >= 1024) {
+                {/* Image 2 */}
+                <div
+                  className=" absolute top-[0px] left-1/2 sm:top-[0px] sm:left-auto sm:right-[80px] md:top-[0] md:right-[50px] lg:top-[342px] lg:right-[720px] -translate-x-1/2 sm:translate-x-0 w-[220px] h-[280px] md:w-[250px] md:h-[320px] lg:w-[340px] lg:h-[420px] rounded-lg overflow-hidden group cursor-pointer transition-all duration-500 ease-out animate-fade-in"
+                  style={{ transform: 'rotate(5deg)', zIndex: 30, animationDelay: '0.3s' }}
+                  onMouseEnter={(e) => {
                     e.currentTarget.style.transform = 'rotate(7deg) scale(1.05) translateY(-8px)'
-                  } else {
-                    e.currentTarget.style.transform = 'scale(1.05) translateY(-5px)'
-                  }
-                  e.currentTarget.style.boxShadow = '0 0 40px rgba(232, 212, 160, 0.7), 0 15px 50px rgba(201, 169, 97, 0.5)'
-                }}
-                onMouseLeave={(e) => {
-                  if (window.innerWidth >= 1024) {
+                    e.currentTarget.style.boxShadow = '0 0 40px rgba(232, 212, 160, 0.7), 0 15px 50px rgba(201, 169, 97, 0.5)'
+                  }}
+                  onMouseLeave={(e) => {
                     e.currentTarget.style.transform = 'rotate(6deg) scale(1) translateY(0)'
-                  } else {
-                    e.currentTarget.style.transform = 'rotate(0deg) scale(1) translateY(0)'
-                  }
-                  e.currentTarget.style.boxShadow = '0 0 30px rgba(232, 212, 160, 0.5), 0 10px 40px rgba(201, 169, 97, 0.3)'
-                }}
-              >
-                <div
-                  className="w-full h-full flex items-center justify-center text-black font-bold text-lg border-4 border-gold-light rounded-lg relative"
-                  style={{
-                    background: 'linear-gradient(135deg, #C9A961 0%, #E8D4A0 50%, #A08748 100%)',
-                    boxShadow: '0 0 30px rgba(232, 212, 160, 0.5), 0 10px 40px rgba(201, 169, 97, 0.3)',
-                    borderWidth: '4px',
+                    e.currentTarget.style.boxShadow = '0 0 30px rgba(232, 212, 160, 0.5), 0 10px 40px rgba(201, 169, 97, 0.3)'
                   }}
                 >
-                  <img src={team2} alt="team2pic" className="w-full h-full object-cover" />
-                  {/* Sparkle dots */}
-                  <div className="absolute top-3 right-3 w-1.5 h-1.5 bg-gold-light rounded-full animate-sparkle" style={{ animationDelay: '0.5s' }}></div>
-                  <div className="absolute bottom-3 left-3 w-1 h-1 bg-gold-light rounded-full animate-sparkle" style={{ animationDelay: '1.5s' }}></div>
+                  <div
+                    className="w-full h-full flex items-center justify-center text-black font-bold text-lg border-4 border-gold-light rounded-lg relative"
+                    style={{
+                      background: 'linear-gradient(135deg, #C9A961 0%, #E8D4A0 50%, #A08748 100%)',
+                      boxShadow: '0 0 30px rgba(232, 212, 160, 0.5), 0 10px 40px rgba(201, 169, 97, 0.3)',
+                      borderWidth: '4px',
+                    }}
+                  >
+                    <img src={team2} alt="team2pic" className="w-full h-full object-cover" />
+                    <div className="absolute top-3 right-3 w-1.5 h-1.5 bg-gold-light rounded-full animate-sparkle" style={{ animationDelay: '0.5s' }}></div>
+                    <div className="absolute bottom-3 left-3 w-1 h-1 bg-gold-light rounded-full animate-sparkle" style={{ animationDelay: '1.5s' }}></div>
+                  </div>
                 </div>
-              </div>
 
-              {/* Image 3 - Accent Image (Smallest, Tucked Behind) */}
-              <div
-                className="absolute top-[520px] left-1/2 sm:top-[250px] sm:left-auto sm:right-[10px] md:top-[320px] md:right-[15px] lg:top-[380px] lg:right-[380px] -translate-x-1/2 sm:translate-x-0 w-[200px] h-[250px] md:w-[230px] md:h-[290px] lg:w-[320px] lg:h-[370px] rounded-lg overflow-hidden group cursor-pointer transition-all duration-500 ease-out animate-fade-in"
-                style={{
-                  transform: 'rotate(-3deg)',
-                  zIndex: 35,
-                  animationDelay: '0.5s',
-                }}
-                onMouseEnter={(e) => {
-                  if (window.innerWidth >= 1024) {
+                {/* Image 3 */}
+                <div
+                  className="absolute top-[520px] left-1/2 sm:top-[250px] sm:left-auto sm:right-[10px] md:top-[320px] md:right-[15px] lg:top-[380px] lg:right-[380px] -translate-x-1/2 sm:translate-x-0 w-[200px] h-[250px] md:w-[230px] md:h-[290px] lg:w-[320px] lg:h-[370px] rounded-lg overflow-hidden group cursor-pointer transition-all duration-500 ease-out animate-fade-in"
+                  style={{ transform: 'rotate(-3deg)', zIndex: 35, animationDelay: '0.5s' }}
+                  onMouseEnter={(e) => {
                     e.currentTarget.style.transform = 'rotate(-4deg) scale(1.05) translateY(-6px)'
-                  } else {
-                    e.currentTarget.style.transform = 'scale(1.05) translateY(-5px)'
-                  }
-                  e.currentTarget.style.boxShadow = '0 0 35px rgba(232, 212, 160, 0.6), 0 12px 45px rgba(201, 169, 97, 0.4)'
-                }}
-                onMouseLeave={(e) => {
-                  if (window.innerWidth >= 1024) {
+                    e.currentTarget.style.boxShadow = '0 0 35px rgba(232, 212, 160, 0.6), 0 12px 45px rgba(201, 169, 97, 0.4)'
+                  }}
+                  onMouseLeave={(e) => {
                     e.currentTarget.style.transform = 'rotate(-4deg) scale(1) translateY(0)'
-                  } else {
-                    e.currentTarget.style.transform = 'rotate(0deg) scale(1) translateY(0)'
-                  }
-                  e.currentTarget.style.boxShadow = '0 0 25px rgba(232, 212, 160, 0.4), 0 8px 35px rgba(201, 169, 97, 0.3)'
-                }}
-              >
-                <div
-                  className="w-full h-full flex items-center justify-center text-black font-bold text-base border-3 border-gold-dark rounded-lg relative"
-                  style={{
-                    background: 'linear-gradient(135deg, #C9A961 0%, #E8D4A0 50%, #A08748 100%)',
-                    boxShadow: '0 0 25px rgba(232, 212, 160, 0.4), 0 8px 35px rgba(201, 169, 97, 0.3)',
-                    borderWidth: '3px',
+                    e.currentTarget.style.boxShadow = '0 0 25px rgba(232, 212, 160, 0.4), 0 8px 35px rgba(201, 169, 97, 0.3)'
                   }}
                 >
-                  <img src={team1} alt="team3pic" className="w-full h-full object-cover" />
-                  {/* Sparkle dots */}
-                  <div className="absolute top-2 right-2 w-1 h-1 bg-gold-light rounded-full animate-sparkle" style={{ animationDelay: '0.8s' }}></div>
+                  <div
+                    className="w-full h-full flex items-center justify-center text-black font-bold text-base border-3 border-gold-dark rounded-lg relative"
+                    style={{
+                      background: 'linear-gradient(135deg, #C9A961 0%, #E8D4A0 50%, #A08748 100%)',
+                      boxShadow: '0 0 25px rgba(232, 212, 160, 0.4), 0 8px 35px rgba(201, 169, 97, 0.3)',
+                      borderWidth: '3px',
+                    }}
+                  >
+                    <img src={team1} alt="team3pic" className="w-full h-full object-cover" />
+                    <div className="absolute top-2 right-2 w-1 h-1 bg-gold-light rounded-full animate-sparkle" style={{ animationDelay: '0.8s' }}></div>
+                  </div>
                 </div>
-              </div>
 
-              {/* Decorative connecting line (subtle) - Hidden on mobile */}
-              <svg className="hidden md:block absolute top-[150px] right-[150px] md:top-[180px] md:right-[180px] lg:top-[200px] lg:right-[200px] w-[100px] h-[100px] md:w-[120px] md:h-[120px] lg:w-[150px] lg:h-[150px] pointer-events-none opacity-20" style={{ zIndex: 15 }}>
-                <path
-                  d="M 0 0 Q 50 35 100 100"
-                  stroke="#E8D4A0"
-                  strokeWidth="1"
-                  fill="none"
-                  strokeDasharray="5,5"
-                />
-              </svg>
+                {/* Decorative connecting line (subtle) - Hidden on mobile */}
+                <svg className="hidden md:block absolute top-[150px] right-[150px] md:top-[180px] md:right-[180px] lg:top-[200px] lg:right-[200px] w-[100px] h-[100px] md:w-[120px] md:h-[120px] lg:w-[150px] lg:h-[150px] pointer-events-none opacity-20" style={{ zIndex: 15 }}>
+                  <path d="M 0 0 Q 50 35 100 100" stroke="#E8D4A0" strokeWidth="1" fill="none" strokeDasharray="5,5" />
+                </svg>
+              </div>
             </div>
           </div>
         </div>

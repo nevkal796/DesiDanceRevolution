@@ -67,219 +67,176 @@ const Directors = () => {
           </div>
         </div>
 
-        {/* Panels (no internal slider; tabs just switch content) */}
-        <div className="w-full pb-12">
-          {/* Panel 1 - Aaron */}
-          {activeTab === 0 && (
-          <div className="animate-fade-in">
-            <div className="px-4">
-              <div className="bg-gradient-to-br from-black to-gray-900 border-2 border-gold-dark rounded-lg p-8 sm:p-12 md:p-16 lg:p-20 shadow-[0_0_30px_rgba(201,169,97,0.3)] relative">
-                {/* Decorative sparkle dots */}
-                <div className="absolute top-6 right-6 w-2 h-2 bg-gold-light rounded-full animate-sparkle"></div>
-                <div className="absolute bottom-6 left-6 w-1.5 h-1.5 bg-gold-light rounded-full animate-sparkle" style={{ animationDelay: '1s' }}></div>
-                <div className="absolute top-6 left-6 w-1 h-1 bg-gold-light rounded-full animate-sparkle" style={{ animationDelay: '0.5s' }}></div>
+        {/* Sliding panels (main pic -> individual directors) */}
+        <div className="relative w-full max-w-7xl mx-auto px-4">
+          <div className="relative w-full min-h-[720px] overflow-hidden">
+            {/* Panel 0 - Aaron */}
+            <div
+              className={`absolute inset-0 transition-all duration-700 ease-in-out transform-gpu ${
+                activeTab === 0
+                  ? 'translate-x-0 opacity-100 z-20 pointer-events-auto'
+                  : activeTab > 0
+                  ? '-translate-x-full opacity-0 z-0 pointer-events-none'
+                  : 'translate-x-full opacity-0 z-0 pointer-events-none'
+              }`}
+              style={{ willChange: 'transform, opacity', backfaceVisibility: 'hidden' }}
+            >
+              <div className="px-4">
+                <div className="bg-gradient-to-br from-black to-gray-900 border-2 border-gold-dark rounded-lg p-8 sm:p-12 md:p-16 lg:p-20 shadow-[0_0_30px_rgba(201,169,97,0.3)] relative">
+                  {/* Decorative sparkle dots */}
+                  <div className="absolute top-6 right-6 w-2 h-2 bg-gold-light rounded-full animate-sparkle"></div>
+                  <div className="absolute bottom-6 left-6 w-1.5 h-1.5 bg-gold-light rounded-full animate-sparkle" style={{ animationDelay: '1s' }}></div>
+                  <div className="absolute top-6 left-6 w-1 h-1 bg-gold-light rounded-full animate-sparkle" style={{ animationDelay: '0.5s' }}></div>
 
-                <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
-                  {/* Text Container - Left (55%) */}
-                  <div className="flex-1 order-2 lg:order-1 lg:max-w-[600px] animate-fade-in">
-                    {/* Gold accent line above name */}
-                    <div className="w-20 h-0.5 bg-gold-light mb-6"></div>
-                    
-                    {/* Director Name */}
-                    <h2 
-                      className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-extrabold mb-4 drop-shadow-gold"
-                      style={{
-                        background: 'linear-gradient(135deg, #E8D4A0 0%, #C9A961 50%, #E8D4A0 100%)',
-                        backgroundSize: '200% auto',
-                        WebkitBackgroundClip: 'text',
-                        WebkitTextFillColor: 'transparent',
-                        backgroundClip: 'text',
-                        textShadow: '0 0 30px rgba(232, 212, 160, 0.5)',
-                        letterSpacing: '0.02em',
-                      }}
-                    >
-                      Aaron Sanders
-                    </h2>
-                    
-                    {/* Role/Title */}
-                    <p className="text-lg sm:text-xl md:text-2xl text-gold mb-8 sm:mb-10 font-medium italic" style={{ letterSpacing: '0.01em' }}>
-                      Artistic Director & Co-Founder
-                    </p>
-                    
-                    {/* Bio Text */}
-                    <div className="space-y-5 sm:space-y-6 text-gray-200 text-base sm:text-lg leading-[1.75] sm:leading-[1.8] max-w-[650px]">
-                      <p>
-                        With over 10 years of experience in dance and teaching, he brings a distinctive style and presence to every performance. From weddings and music videos to high profile events — including a performance in front of the President - he has taken the stage in a wide range of settings.
+                  <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
+                    {/* Text Container - Left (55%) */}
+                    <div className="flex-1 order-2 lg:order-1 lg:max-w-[600px]">
+                      <div className="w-20 h-0.5 bg-gold-light mb-6"></div>
+
+                      <h2
+                        className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-extrabold mb-4 drop-shadow-gold"
+                        style={{
+                          background: 'linear-gradient(135deg, #E8D4A0 0%, #C9A961 50%, #E8D4A0 100%)',
+                          backgroundSize: '200% auto',
+                          WebkitBackgroundClip: 'text',
+                          WebkitTextFillColor: 'transparent',
+                          backgroundClip: 'text',
+                          textShadow: '0 0 30px rgba(232, 212, 160, 0.5)',
+                          letterSpacing: '0.02em',
+                        }}
+                      >
+                        Aaron Sanders
+                      </h2>
+
+                      <p className="text-lg sm:text-xl md:text-2xl text-gold mb-8 sm:mb-10 font-medium italic" style={{ letterSpacing: '0.01em' }}>
+                        Artistic Director & Co-Founder
                       </p>
-                      <p>
-                        In pursuit of bringing his own creative ideas to life, he partnered with his longtime collaborator, Shinel Dunha. Together, they're working to push boundaries and introduce a fresh perspective to the dance scene - a movement they call the Desi Dance Revolution.
-                      </p>
+
+                      <div className="space-y-5 sm:space-y-6 text-gray-200 text-base sm:text-lg leading-[1.75] sm:leading-[1.8] max-w-[650px]">
+                        <p>
+                          With over 10 years of experience in dance and teaching, he brings a distinctive style and presence to every performance. From weddings and music videos to high profile events — including a performance in front of the President - he has taken the stage in a wide range of settings.
+                        </p>
+                        <p>
+                          In pursuit of bringing his own creative ideas to life, he partnered with his longtime collaborator, Shinel Dunha. Together, they're working to push boundaries and introduce a fresh perspective to the dance scene - a movement they call the Desi Dance Revolution.
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Image Container - Right (40%) */}
+                    <div className="flex-shrink-0 order-1 lg:order-2 w-full lg:w-auto flex justify-center lg:justify-end mb-8 lg:mb-0">
+                      <div
+                        className="group relative w-full max-w-[320px] sm:max-w-[350px] lg:max-w-[380px] h-[400px] sm:h-[450px] lg:h-[480px] rounded-lg overflow-hidden transition-all duration-500 ease-out lg:[transform:rotate(2deg)]"
+                        style={{
+                          boxShadow: '0 0 40px rgba(232, 212, 160, 0.5), 0 20px 60px rgba(201, 169, 97, 0.4)',
+                        }}
+                      >
+                        <div className="absolute inset-0 border-4 border-gold rounded-lg"></div>
+                        <div className="absolute inset-2 border-2 border-gold-light rounded-lg opacity-50"></div>
+                        <img src={aaronsanders} alt="Aaron Sanders" className="w-full h-full object-cover rounded-lg relative z-10" />
+                        <div className="absolute top-0 left-0 w-12 h-12 border-t-2 border-l-2 border-gold-light opacity-40 z-20"></div>
+                        <div className="absolute bottom-0 right-0 w-12 h-12 border-b-2 border-r-2 border-gold-light opacity-40 z-20"></div>
+                      </div>
                     </div>
                   </div>
+                </div>
+              </div>
+            </div>
 
-                  {/* Image Container - Right (40%) */}
-                  <div className="flex-shrink-0 order-1 lg:order-2 w-full lg:w-auto flex justify-center lg:justify-end mb-8 lg:mb-0 animate-fade-in" style={{ animationDelay: '0.2s' }}>
-                    <div
-                      className="group relative w-full max-w-[320px] sm:max-w-[350px] lg:max-w-[380px] h-[400px] sm:h-[450px] lg:h-[480px] rounded-lg overflow-hidden transition-all duration-500 ease-out lg:[transform:rotate(2deg)]"
-                      style={{
-                        boxShadow: '0 0 40px rgba(232, 212, 160, 0.5), 0 20px 60px rgba(201, 169, 97, 0.4)',
-                      }}
-                      onMouseEnter={(e) => {
-                        if (window.innerWidth >= 1024) {
-                          e.currentTarget.style.transform = 'rotate(1deg) translateY(-12px)'
-                        } else {
-                          e.currentTarget.style.transform = 'translateY(-8px)'
-                        }
-                        e.currentTarget.style.boxShadow = '0 0 50px rgba(232, 212, 160, 0.8), 0 25px 70px rgba(201, 169, 97, 0.6)'
-                      }}
-                      onMouseLeave={(e) => {
-                        if (window.innerWidth >= 1024) {
-                          e.currentTarget.style.transform = 'rotate(2deg) translateY(0)'
-                        } else {
-                          e.currentTarget.style.transform = 'rotate(0deg) translateY(0)'
-                        }
-                        e.currentTarget.style.boxShadow = '0 0 40px rgba(232, 212, 160, 0.5), 0 20px 60px rgba(201, 169, 97, 0.4)'
-                      }}
-                    >
-                      {/* Double border effect */}
-                      <div className="absolute inset-0 border-4 border-gold rounded-lg"></div>
-                      <div className="absolute inset-2 border-2 border-gold-light rounded-lg opacity-50"></div>
-                      
-                      {/* Image */}
-                      <img 
-                        src={aaronsanders} 
-                        alt="Aaron Sanders" 
-                        className="w-full h-full object-cover rounded-lg relative z-10" 
-                      />
-                      
-                      {/* Decorative corner elements */}
-                      <div className="absolute top-0 left-0 w-12 h-12 border-t-2 border-l-2 border-gold-light opacity-40 z-20"></div>
-                      <div className="absolute bottom-0 right-0 w-12 h-12 border-b-2 border-r-2 border-gold-light opacity-40 z-20"></div>
+            {/* Panel 1 - Main (Both Directors) */}
+            <div
+              className={`absolute inset-0 transition-all duration-700 ease-in-out transform-gpu ${
+                activeTab === 1
+                  ? 'translate-x-0 opacity-100 z-20 pointer-events-auto'
+                  : activeTab < 1
+                  ? 'translate-x-full opacity-0 z-0 pointer-events-none'
+                  : '-translate-x-full opacity-0 z-0 pointer-events-none'
+              }`}
+              style={{ willChange: 'transform, opacity', backfaceVisibility: 'hidden' }}
+            >
+              <div className="px-4">
+                <div className="bg-gradient-to-br from-black to-gray-900 border-2 border-gold-dark rounded-lg p-8 md:p-12 shadow-[0_0_30px_rgba(201,169,97,0.3)] relative">
+                  <div className="absolute top-4 left-4 w-2 h-2 bg-gold-light rounded-full animate-sparkle"></div>
+                  <div className="absolute top-4 right-4 w-1.5 h-1.5 bg-gold-light rounded-full animate-sparkle" style={{ animationDelay: '0.5s' }}></div>
+                  <div className="absolute bottom-4 left-1/2 w-2 h-2 bg-gold-light rounded-full animate-sparkle" style={{ animationDelay: '1s' }}></div>
+
+                  <div className="flex justify-center">
+                    <div className="w-full max-w-[500px] h-[400px] rounded-lg border-4 border-gold overflow-hidden shadow-[0_0_30px_rgba(232,212,160,0.5)] transition-all duration-300">
+                      <img src={togetherdirector} alt="Both Directors" className="w-full h-full object-cover" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Panel 2 - Shinel */}
+            <div
+              className={`absolute inset-0 transition-all duration-700 ease-in-out transform-gpu ${
+                activeTab === 2
+                  ? 'translate-x-0 opacity-100 z-20 pointer-events-auto'
+                  : activeTab < 2
+                  ? 'translate-x-full opacity-0 z-0 pointer-events-none'
+                  : '-translate-x-full opacity-0 z-0 pointer-events-none'
+              }`}
+              style={{ willChange: 'transform, opacity', backfaceVisibility: 'hidden' }}
+            >
+              <div className="px-4">
+                <div className="bg-gradient-to-br from-black to-gray-900 border-2 border-gold-dark rounded-lg p-8 sm:p-12 md:p-16 lg:p-20 shadow-[0_0_30px_rgba(201,169,97,0.3)] relative">
+                  <div className="absolute top-6 left-6 w-2 h-2 bg-gold-light rounded-full animate-sparkle"></div>
+                  <div className="absolute bottom-6 right-6 w-1.5 h-1.5 bg-gold-light rounded-full animate-sparkle" style={{ animationDelay: '1s' }}></div>
+                  <div className="absolute top-6 right-6 w-1 h-1 bg-gold-light rounded-full animate-sparkle" style={{ animationDelay: '0.5s' }}></div>
+
+                  <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
+                    <div className="flex-shrink-0 order-1 w-full lg:w-auto flex justify-center lg:justify-start mb-8 lg:mb-0">
+                      <div
+                        className="group relative w-full max-w-[320px] sm:max-w-[350px] lg:max-w-[380px] h-[400px] sm:h-[450px] lg:h-[480px] rounded-lg overflow-hidden transition-all duration-500 ease-out lg:[transform:rotate(-2deg)]"
+                        style={{
+                          boxShadow: '0 0 40px rgba(232, 212, 160, 0.5), 0 20px 60px rgba(201, 169, 97, 0.4)',
+                        }}
+                      >
+                        <div className="absolute inset-0 border-4 border-gold rounded-lg"></div>
+                        <div className="absolute inset-2 border-2 border-gold-light rounded-lg opacity-50"></div>
+                        <img src={shineldunha} alt="Shinel Dcunha" className="w-full h-full object-cover rounded-lg relative z-10" style={{ objectFit: 'cover' }} />
+                        <div className="absolute top-0 right-0 w-12 h-12 border-t-2 border-r-2 border-gold-light opacity-40 z-20"></div>
+                        <div className="absolute bottom-0 left-0 w-12 h-12 border-b-2 border-l-2 border-gold-light opacity-40 z-20"></div>
+                      </div>
+                    </div>
+
+                    <div className="flex-1 order-2 lg:max-w-[600px]">
+                      <div className="w-20 h-0.5 bg-gold-light mb-6"></div>
+
+                      <h2
+                        className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-extrabold mb-4 drop-shadow-gold"
+                        style={{
+                          background: 'linear-gradient(135deg, #E8D4A0 0%, #C9A961 50%, #E8D4A0 100%)',
+                          backgroundSize: '200% auto',
+                          WebkitBackgroundClip: 'text',
+                          WebkitTextFillColor: 'transparent',
+                          backgroundClip: 'text',
+                          textShadow: '0 0 30px rgba(232, 212, 160, 0.5)',
+                          letterSpacing: '0.02em',
+                        }}
+                      >
+                        Shinel Dcunha
+                      </h2>
+
+                      <p className="text-lg sm:text-xl md:text-2xl text-gold mb-8 sm:mb-10 font-medium italic" style={{ letterSpacing: '0.01em' }}>
+                        Co-Director & Choreographer
+                      </p>
+
+                      <div className="space-y-5 sm:space-y-6 text-gray-200 text-base sm:text-lg leading-[1.75] sm:leading-[1.8] max-w-[650px]">
+                        <p>
+                          With over two decades of dance experience, Shinel has been dancing since she was 4 years old. Bollywood Star shows, weddings, galas, solo competitions and winning collegiate competitions are all a part of her repertoire; her journey spans every stage.
+                        </p>
+                        <p>
+                          She's performed for intimate audiences of 10 and crowds as large as 8,000. Now, she's channeled that lifelong passion into purpose with the launch of Desi Dance Revolution. She's our co founder, our inspiration, our star.
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          )}
-
-          {/* Panel 2 - Both Directors */}
-          {activeTab === 1 && (
-          <div className="animate-fade-in">
-            <div className="px-4">
-              <div className="bg-gradient-to-br from-black to-gray-900 border-2 border-gold-dark rounded-lg p-8 md:p-12 shadow-[0_0_30px_rgba(201,169,97,0.3)] relative">
-                {/* Decorative sparkle dots */}
-                <div className="absolute top-4 left-4 w-2 h-2 bg-gold-light rounded-full animate-sparkle"></div>
-                <div className="absolute top-4 right-4 w-1.5 h-1.5 bg-gold-light rounded-full animate-sparkle" style={{ animationDelay: '0.5s' }}></div>
-                <div className="absolute bottom-4 left-1/2 w-2 h-2 bg-gold-light rounded-full animate-sparkle" style={{ animationDelay: '1s' }}></div>
-
-                <div className="flex justify-center">
-                  {/* Image Center */}
-                  <div
-                    className="w-full max-w-[500px] h-[400px] rounded-lg border-4 border-gold overflow-hidden shadow-[0_0_30px_rgba(232,212,160,0.5)] hover:shadow-[0_0_40px_rgba(232,212,160,0.7)] transition-all duration-300"
-                  >
-                    <img src={togetherdirector} alt="Both Directors" className="w-full h-full object-cover" />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          )}
-
-          {/* Panel 3 - Shinel */}
-          {activeTab === 2 && (
-          <div className="animate-fade-in">
-            <div className="px-4">
-              <div className="bg-gradient-to-br from-black to-gray-900 border-2 border-gold-dark rounded-lg p-8 sm:p-12 md:p-16 lg:p-20 shadow-[0_0_30px_rgba(201,169,97,0.3)] relative">
-                {/* Decorative sparkle dots */}
-                <div className="absolute top-6 left-6 w-2 h-2 bg-gold-light rounded-full animate-sparkle"></div>
-                <div className="absolute bottom-6 right-6 w-1.5 h-1.5 bg-gold-light rounded-full animate-sparkle" style={{ animationDelay: '1s' }}></div>
-                <div className="absolute top-6 right-6 w-1 h-1 bg-gold-light rounded-full animate-sparkle" style={{ animationDelay: '0.5s' }}></div>
-
-                <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
-                  {/* Image Container - Left (40%) */}
-                  <div className="flex-shrink-0 order-1 w-full lg:w-auto flex justify-center lg:justify-start mb-8 lg:mb-0 animate-fade-in" style={{ animationDelay: '0.2s' }}>
-                    <div
-                      className="group relative w-full max-w-[320px] sm:max-w-[350px] lg:max-w-[380px] h-[400px] sm:h-[450px] lg:h-[480px] rounded-lg overflow-hidden transition-all duration-500 ease-out lg:[transform:rotate(-2deg)]"
-                      style={{
-                        boxShadow: '0 0 40px rgba(232, 212, 160, 0.5), 0 20px 60px rgba(201, 169, 97, 0.4)',
-                      }}
-                      onMouseEnter={(e) => {
-                        if (window.innerWidth >= 1024) {
-                          e.currentTarget.style.transform = 'rotate(-1deg) translateY(-12px)'
-                        } else {
-                          e.currentTarget.style.transform = 'translateY(-8px)'
-                        }
-                        e.currentTarget.style.boxShadow = '0 0 50px rgba(232, 212, 160, 0.8), 0 25px 70px rgba(201, 169, 97, 0.6)'
-                      }}
-                      onMouseLeave={(e) => {
-                        if (window.innerWidth >= 1024) {
-                          e.currentTarget.style.transform = 'rotate(-2deg) translateY(0)'
-                        } else {
-                          e.currentTarget.style.transform = 'rotate(0deg) translateY(0)'
-                        }
-                        e.currentTarget.style.boxShadow = '0 0 40px rgba(232, 212, 160, 0.5), 0 20px 60px rgba(201, 169, 97, 0.4)'
-                      }}
-                    >
-                      {/* Double border effect */}
-                      <div className="absolute inset-0 border-4 border-gold rounded-lg"></div>
-                      <div className="absolute inset-2 border-2 border-gold-light rounded-lg opacity-50"></div>
-                      
-                      {/* Image */}
-                      <img 
-                        src={shineldunha} 
-                        alt="Shinel Dcunha" 
-                        className="w-full h-full object-cover rounded-lg relative z-10" 
-                        style={{ objectFit: 'cover' }}
-                      />
-                      
-                      {/* Decorative corner elements */}
-                      <div className="absolute top-0 right-0 w-12 h-12 border-t-2 border-r-2 border-gold-light opacity-40 z-20"></div>
-                      <div className="absolute bottom-0 left-0 w-12 h-12 border-b-2 border-l-2 border-gold-light opacity-40 z-20"></div>
-                    </div>
-                  </div>
-
-                  {/* Text Container - Right (55%) */}
-                  <div className="flex-1 order-2 lg:max-w-[600px] animate-fade-in">
-                    {/* Gold accent line above name */}
-                    <div className="w-20 h-0.5 bg-gold-light mb-6"></div>
-                    
-                    {/* Director Name */}
-                    <h2 
-                      className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-extrabold mb-4 drop-shadow-gold"
-                      style={{
-                        background: 'linear-gradient(135deg, #E8D4A0 0%, #C9A961 50%, #E8D4A0 100%)',
-                        backgroundSize: '200% auto',
-                        WebkitBackgroundClip: 'text',
-                        WebkitTextFillColor: 'transparent',
-                        backgroundClip: 'text',
-                        textShadow: '0 0 30px rgba(232, 212, 160, 0.5)',
-                        letterSpacing: '0.02em',
-                      }}
-                    >
-                      Shinel Dcunha
-                    </h2>
-                    
-                    {/* Role/Title */}
-                    <p className="text-lg sm:text-xl md:text-2xl text-gold mb-8 sm:mb-10 font-medium italic" style={{ letterSpacing: '0.01em' }}>
-                      Co-Director & Choreographer
-                    </p>
-                    
-                    {/* Bio Text */}
-                    <div className="space-y-5 sm:space-y-6 text-gray-200 text-base sm:text-lg leading-[1.75] sm:leading-[1.8] max-w-[650px]">
-                      <p>
-                        With over two decades of dance experience, Shinel has been dancing since she was 4 years old. Bollywood Star shows, weddings, galas, solo competitions and winning collegiate competitions are all a part of her repertoire; her journey spans every stage.
-                      </p>
-                      <p>
-                        She's performed for intimate audiences of 10 and crowds as large as 8,000. Now, she's channeled that lifelong passion into purpose with the launch of Desi Dance Revolution. She's our co founder, our inspiration, our star.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          )}
         </div>
       </div>
     </div>
